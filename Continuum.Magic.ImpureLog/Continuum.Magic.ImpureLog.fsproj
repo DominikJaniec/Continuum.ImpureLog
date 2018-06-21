@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Library.fs" />
+    <Compile Include="Level.fs" />
+    <Compile Include="CoreLog.fs" />
   </ItemGroup>
 
 </Project>
