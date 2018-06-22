@@ -26,10 +26,10 @@ module Level =
         | LvlTrace -> -10000
         | LvlNever -> Int32.MinValue
 
-    let atLeast currentLevel level =
-        let currentPriority = (currentLevel |> asPriority)
+    let atLeast setup level =
+        let setupPriority = (setup |> asPriority)
         let givenPriority = (level |> asPriority)
         givenPriority > (LvlNever |> asPriority)
-            && givenPriority >= currentPriority
+            && givenPriority >= setupPriority
 
 
