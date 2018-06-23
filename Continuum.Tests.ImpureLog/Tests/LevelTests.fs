@@ -1,4 +1,4 @@
-namespace Continuum.Tests.ImpureLog
+namespace Continuum.Tests.ImpureLog.Tests
 
 open Continuum.Magic.ImpureLog
 open FsUnit
