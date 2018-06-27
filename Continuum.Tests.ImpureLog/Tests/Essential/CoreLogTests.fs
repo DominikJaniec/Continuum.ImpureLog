@@ -1,7 +1,8 @@
-namespace Continuum.Tests.ImpureLog.Tests
+namespace Continuum.Tests.ImpureLog.Tests.Essential
 
 open System
 open Continuum.Magic.ImpureLog
+open Continuum.Magic.ImpureLog.Essential
 open Continuum.Tests.ImpureLog.Fakes
 open FsUnit
 open FsUnitTyped.TopLevelOperators

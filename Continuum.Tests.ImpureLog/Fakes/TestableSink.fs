@@ -1,6 +1,6 @@
 namespace Continuum.Tests.ImpureLog.Fakes
 
-open Continuum.Magic.ImpureLog
+open Continuum.Magic.ImpureLog.Essential
 
 type TestableSink () =
     let mutable entries : ILogEntry list = []
