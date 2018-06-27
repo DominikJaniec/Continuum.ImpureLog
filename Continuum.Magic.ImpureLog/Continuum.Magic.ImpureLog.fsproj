@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Compile Include="Level.fs" />
+    <Compile Include="Defaults.fs" />
     <Compile Include="Essential/ILogSink.fs" />
     <Compile Include="Essential/CoreLog.fs" />
   </ItemGroup>

@@ -13,7 +13,7 @@ module CoreLog =
             member this.Thing = this.thing
 
     let private stringify it =
-        sprintf "%A" it
+        Defaults.sculp it
             |> Some
 
     let into (sink: ILogSink) (setup: Level) (lvl: Level) (msg: string) =
