@@ -12,9 +12,8 @@ module CoreLog =
             member this.Message = this.message
             member this.Thing = this.thing
 
-    let private stringify it =
-        Defaults.sculp it
-            |> Some
+    let sculp it =
+        sprintf "%A" it
 
     let into (sink: ILogSink) (setup: Level) (lvl: Level) (msg: string) =
         if lvl |> Level.atLeast setup then
@@ -28,10 +27,10 @@ module CoreLog =
 
     let thatInto (sink: ILogSink) (setup: Level) (lvl: Level) (msg: string) it =
         if lvl |> Level.atLeast setup then
-            sink.Put { message = msg; thing = stringify it}
+            sink.Put { message = msg; thing = sculp it |> Some }
         ()
 
     let throughThatInto (sink: ILogSink) (setup: Level) (lvl: Level) (msg: string) it =
         if lvl |> Level.atLeast setup then
-            sink.Put { message = msg; thing = stringify it}
+            sink.Put { message = msg; thing = sculp it |> Some }
         it

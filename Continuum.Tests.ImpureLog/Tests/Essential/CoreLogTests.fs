@@ -16,6 +16,16 @@ module CoreLogTests =
     let private makeTestSink () = TestableSink()
 
 
+    module ``The CoreLog's method 'sculp'`` =
+
+        [<Fact>]
+        let ``is stringifier which behaves like 'sprintf' with format "%A"`` () =
+            let complexThing = ("this-is", [ "very"; "complex" ], 42, 13, 7)
+            let formatted = sprintf "%A" complexThing
+            CoreLog.sculp complexThing
+                |> shouldEqual formatted
+
+
     module ``The CoreLog's method 'into'`` =
 
         [<Fact>]

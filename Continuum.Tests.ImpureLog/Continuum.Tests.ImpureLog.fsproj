@@ -10,8 +10,8 @@
     <Compile Include="Fakes/Eavesdropped.fs" />
     <Compile Include="Fakes/TestableSink.fs" />
     <Compile Include="Tests/LevelTests.fs" />
-    <Compile Include="Tests/DefaultsTests.fs" />
     <Compile Include="Tests/Essential/CoreLogTests.fs" />
+    <Compile Include="Tests/Component/LogsFactoryTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
