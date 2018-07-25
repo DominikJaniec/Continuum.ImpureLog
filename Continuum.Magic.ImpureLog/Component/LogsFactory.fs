@@ -21,19 +21,21 @@ type private TextWriterSink (writer : TextWriter) =
             do writer.WriteLine entry.Message
 
 
-type private ConsoleLog (setup : NormalSetup) =
-    inherit BasicLog(new ConsoleSink(), setup.Level)
-
-type private TextLog (writer : TextWriter, setup : NormalSetup) =
-    inherit BasicLog(new TextWriterSink(writer), setup.Level)
-
-
 module LogsFactory =
     let private setup = new NormalSetup()
+
     let normalLevel = setup.Level
 
+    let private makeBasicLog sink =
+        new BasicLog(sink, setup.Level) :> ILog
+
+    let makeFuncLog sink =
+        new FuncLog(sink, setup.Level) :> IFuncLog
+
     let makeTextLog writer =
-        new TextLog(writer, setup) :> ILog
+        new TextWriterSink(writer)
+            |> makeBasicLog
 
     let makeConsoleLog () =
-        new ConsoleLog(setup) :> ILog
+        new ConsoleSink()
+            |> makeBasicLog

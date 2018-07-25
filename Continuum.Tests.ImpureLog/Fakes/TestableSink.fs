@@ -13,6 +13,10 @@ type TestableSink () =
         entries
             |> Seq.map (fun e -> e.Message)
 
+    member __.Things =
+        entries
+            |> Seq.choose (fun e -> e.Thing)
+
     interface ILogSink with
         member __.Put entry =
             entries <- entry :: entries

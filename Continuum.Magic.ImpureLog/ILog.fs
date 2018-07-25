@@ -1,6 +1,8 @@
 namespace Continuum.Magic.ImpureLog
 
 type ILog =
+    inherit IFuncLog
+
     abstract member UsableFor : Level -> bool
 
     abstract member Message : Level -> string -> unit

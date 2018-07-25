@@ -5,18 +5,21 @@ open Continuum.Magic.ImpureLog.Essential
 
 
 type BasicLog (sink : ILogSink, setup : Level) =
-    let log = CoreLog.into sink setup
+    inherit FuncLog(sink, setup)
+
+    member private this.LogAs lvl msg =
+        (this :> IFuncLog).stateAs lvl msg
 
     interface ILog with
-        member __.UsableFor lvl =
+        member this.UsableFor lvl =
             lvl |> Level.atLeast setup
 
-        member __.Message lvl msg = log lvl msg
+        member this.Message lvl msg = this.LogAs lvl msg
 
-        member __.Always msg = log LvlAlways msg
-        member __.Panic msg = log LvlPanic msg
-        member __.Error msg = log LvlError msg
-        member __.Warn msg = log LvlWarn msg
-        member __.Info msg = log LvlInfo msg
-        member __.Debug msg = log LvlDebug msg
-        member __.Trace msg = log LvlTrace msg
+        member this.Always msg = this.LogAs LvlAlways msg
+        member this.Panic msg = this.LogAs LvlPanic msg
+        member this.Error msg = this.LogAs LvlError msg
+        member this.Warn msg = this.LogAs LvlWarn msg
+        member this.Info msg = this.LogAs LvlInfo msg
+        member this.Debug msg = this.LogAs LvlDebug msg
+        member this.Trace msg = this.LogAs LvlTrace msg

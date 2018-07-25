@@ -6,9 +6,11 @@
 
   <ItemGroup>
     <Compile Include="Level.fs" />
+    <Compile Include="IFuncLog.fs" />
     <Compile Include="ILog.fs" />
     <Compile Include="Essential/ILogSink.fs" />
     <Compile Include="Essential/CoreLog.fs" />
+    <Compile Include="Component/Internal/FuncLog.fs" />
     <Compile Include="Component/Internal/BasicLog.fs" />
     <Compile Include="Component/LogsFactory.fs" />
   </ItemGroup>
