@@ -12,6 +12,7 @@
     <Compile Include="Essential/CoreLog.fs" />
     <Compile Include="Component/Internal/FuncLog.fs" />
     <Compile Include="Component/Internal/BasicLog.fs" />
+    <Compile Include="Component/LogsConfig.fs" />
     <Compile Include="Component/LogsFactory.fs" />
   </ItemGroup>
 

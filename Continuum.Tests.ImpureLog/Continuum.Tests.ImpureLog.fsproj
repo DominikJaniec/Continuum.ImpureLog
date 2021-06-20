@@ -11,6 +11,7 @@
     <Compile Include="Fakes/TestableSink.fs" />
     <Compile Include="Tests/LevelTests.fs" />
     <Compile Include="Tests/Essential/CoreLogTests.fs" />
+    <Compile Include="Tests/Component/LogsConfigTests.fs" />
     <Compile Include="Tests/Component/LogsFactoryTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
